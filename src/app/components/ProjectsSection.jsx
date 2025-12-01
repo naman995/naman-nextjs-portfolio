@@ -4,61 +4,73 @@ import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
-const projectsData = [
+export const projectsData = [
   {
     id: 1,
-    title: "React Portfolio Website",
-    description: "Project 1 description",
+    title: "DGM California",
+    description:
+      "A website for a company that provides services for transportation and logistics of dangerous goods",
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/naman995/dgm-learn-firebase",
+    previewUrl: "https://dgm-firebase.vercel.app/",
   },
   {
     id: 2,
     title: "Potography Portfolio Website",
-    description: "Project 2 description",
+    description: "Personal portfolio website for a photographer",
     image: "/images/projects/2.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/naman995/Arpit_portfolio",
+    previewUrl: "https://raattdesign.vercel.app/",
   },
   {
     id: 3,
     title: "E-commerce Application",
-    description: "Project 3 description",
+    description:
+      "A conversion-focused, responsive template equipped with essential online store features like product galleries, a shopping cart, and secure checkout, optimized for seamless shopping across all devices",
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/naman995/suridhi",
+    previewUrl: "https://suridhi.vercel.app/",
   },
   {
     id: 4,
-    title: "Food Ordering Application",
-    description: "Project 4 description",
+    title: "User Management System",
+    description:
+      "A comprehensive user management system built with modern DevOps practices",
+    detailedDescription:
+      "This project demonstrates a complete user management system with automated CI/CD pipelines, containerization, and cloud deployment. The system includes user authentication, role-based access control, and real-time monitoring capabilities.",
     image: "/images/projects/4.png",
     tag: ["All", "Devops"],
     gitUrl: "/",
     previewUrl: "/",
+    videoUrl: "", // Add your video URL here
   },
   {
     id: 5,
-    title: "React Firebase Template",
-    description: "Authentication and CRUD operations",
+    title: "3 Tier Architecture Application Deployment",
+    description: "End to End 3 tier architecture application deployment",
+    detailedDescription:
+      "A production-ready React application template with Firebase integration, featuring automated deployment pipelines, container orchestration, and infrastructure as code. This project showcases best practices in DevOps workflows including automated testing, continuous integration, and cloud-native deployment strategies.",
     image: "/images/projects/5.png",
     tag: ["All", "Devops"],
     gitUrl: "/",
     previewUrl: "/",
+    videoUrl: "", // Add your video URL here
   },
-  {
-    id: 6,
-    title: "Full-stack Roadmap",
-    description: "Project 5 description",
-    image: "/images/projects/6.png",
-    tag: ["All", "Devops"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
+  // {
+  //   id: 6,
+  //   title: "Full-stack Roadmap",
+  //   description: "A comprehensive full-stack development roadmap project",
+  //   detailedDescription:
+  //     "This project provides a complete roadmap for full-stack development with DevOps integration. It includes infrastructure automation, containerization with Docker, Kubernetes orchestration, CI/CD pipelines, and monitoring solutions. The project demonstrates end-to-end DevOps practices from development to production deployment.",
+  //   image: "/images/projects/6.png",
+  //   tag: ["All", "Devops"],
+  //   gitUrl: "/",
+  //   previewUrl: "/",
+  //   videoUrl: "", // Add your video URL here
+  // },
 ];
 
 const ProjectsSection = () => {
@@ -97,8 +109,8 @@ const ProjectsSection = () => {
         />
         <ProjectTag
           onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
+          name="Devops"
+          isSelected={tag === "Devops"}
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
@@ -112,11 +124,13 @@ const ProjectsSection = () => {
           >
             <ProjectCard
               key={project.id}
+              id={project.id}
               title={project.title}
               description={project.description}
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
+              tags={project.tag}
             />
           </motion.li>
         ))}

@@ -39,19 +39,6 @@ const TAB_DATA = [
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold">Infrastructure as Code (IaC)</h4>
-          <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>Terraform</li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-semibold">Monitoring &amp; Logging</h4>
-          <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>Prometheus</li>
-            <li>Grafana</li>
-          </ul>
-        </div>
-        <div>
           <h4 className="font-semibold">Cloud Platforms (AWS)</h4>
           <ul className="list-disc pl-5 mt-2 space-y-1">
             <li>VPC</li>
@@ -59,6 +46,22 @@ const TAB_DATA = [
             <li>IAM</li>
             <li>S3</li>
             <li>CloudFront</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-semibold">
+            Infrastructure as Code (IaC) &amp; Configuration Management
+          </h4>
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Terraform</li>
+            <li>Ansible</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-semibold">Monitoring &amp; Logging</h4>
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Prometheus</li>
+            <li>Grafana</li>
           </ul>
         </div>
       </div>
@@ -71,16 +74,6 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>Bachelor of Computer Science</li>
         <li>Manav Rachna International Institute Of Research And Studies</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Certifications",
-    id: "certifications",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Professional Cloud Developer</li>
       </ul>
     ),
   },
@@ -99,13 +92,13 @@ const AboutSection = () => {
   return (
     <section className="text-white" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image
+        <div className="flex flex-col items-center justify-center">
+          {/* <Image
           src="/images/about-image.png"
           alt="about image"
-          width={500}
-          height={500}
-        />
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
+          width={300}
+          height={300}
+        />  */}
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
             I am a DevOps Engineer with 1 year and 4 months of experience in
@@ -117,6 +110,8 @@ const AboutSection = () => {
             my knowledge and skill set. As a collaborative team player, I’m
             excited to work with others to build exceptional applications.
           </p>
+        </div>
+        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <div className="flex flex-row justify-start mt-8">
             <TabButton
               selectTab={() => handleTabChange("skills")}
@@ -131,13 +126,6 @@ const AboutSection = () => {
             >
               {" "}
               Education{" "}
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("certifications")}
-              active={tab === "certifications"}
-            >
-              {" "}
-              Certifications{" "}
             </TabButton>
           </div>
           <div className="mt-8">
