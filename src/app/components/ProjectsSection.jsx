@@ -17,7 +17,7 @@ export const projectsData = [
   },
   {
     id: 2,
-    title: "Potography Portfolio Website",
+    title: "Photography Portfolio Website",
     description: "Personal portfolio website for a photographer",
     image: "/images/projects/2.png",
     tag: ["All", "Web"],

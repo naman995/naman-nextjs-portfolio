@@ -3,6 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
+import {
+  ArrowDownTrayIcon,
+  EyeIcon,
+  DocumentTextIcon,
+} from "@heroicons/react/24/outline";
 
 const experiences = [
   {
@@ -11,7 +16,7 @@ const experiences = [
     company: "CargoFlash Infotech Pvt. Ltd.",
     location: "Gurugram, India",
     startDate: "Feb 2024",
-    endDate: "July 2025",
+    endDate: "May 2025",
     description: [
       "The company required a reliable and scalable solution for managing warehousing and reservations for airline cargo, delivered as a SaaS application.",
       "Implemented Docker containerization, orchestrated deployments using Kubernetes on AWS infrastructure, and built robust CI/CD pipelines using Jenkins for automated testing and release workflows. Coordinated application releases on test and staging servers, optimising deployment speed and reliability.",
@@ -29,6 +34,7 @@ const experiences = [
       "AWS",
       "Terraform",
     ],
+    experienceLetter: "/exp/Cargoflash.pdf", // Add your experience letter path here
   },
   {
     id: 2,
@@ -38,15 +44,44 @@ const experiences = [
     startDate: "Jun 2022",
     endDate: "Mar 2022",
     description: [
-      "Assisted in migrating on‑premise workloads to cloud infrastructure.",
-      "Wrote shell scripts to automate routine maintenance and deployment tasks.",
-      "Collaborated with developers to troubleshoot builds and environments.",
+      "Developed responsive and reusable UI components in React, collaborated with the team to implement new features, and optimized the frontend codebase during my internship",
     ],
     techStack: ["HTML", "CSS", "JavaScript", "React", "Git", "GitHub"],
+    experienceLetter: "/exp/Misui.pdf",
+  },
+  {
+    id: 3,
+    role: "Web Developer Intern",
+    company: "TES Pvt. Ltd.",
+    location: "Bengalore , India",
+    startDate: "Dec 2021",
+    endDate: "Jan 2022",
+    description: [
+      "Developed and optimized a fully responsive landing page, ensuring fast load time and smooth user experience.",
+    ],
+    techStack: ["HTML", "CSS", "JavaScript", "Git", "GitHub"],
+    experienceLetter: "/exp/TES.pdf", // Add your experience letter path here
   },
 ];
 
 const ExperienceCard = ({ experience }) => {
+  const handleView = () => {
+    if (experience.experienceLetter) {
+      window.open(experience.experienceLetter, "_blank");
+    }
+  };
+
+  const handleDownload = () => {
+    if (experience.experienceLetter) {
+      const link = document.createElement("a");
+      link.href = experience.experienceLetter;
+      link.download = `${experience.company}-Experience-Letter.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -81,6 +116,30 @@ const ExperienceCard = ({ experience }) => {
               {tech}
             </span>
           ))}
+        </div>
+      )}
+      {experience.experienceLetter && (
+        <div className="flex items-center gap-3 mt-3 pt-3 border-t border-[#333]">
+          <DocumentTextIcon className="h-5 w-5 text-gray-400" />
+          <span className="text-sm text-gray-400 flex-1">
+            Experience Letter
+          </span>
+          <div className="flex gap-2">
+            <button
+              onClick={handleView}
+              className="flex items-center gap-2 px-3 py-1.5 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors duration-300 text-xs md:text-sm"
+            >
+              <EyeIcon className="h-4 w-4" />
+              View
+            </button>
+            <button
+              onClick={handleDownload}
+              className="flex items-center gap-2 px-3 py-1.5 bg-secondary-500 hover:bg-secondary-600 text-white rounded-lg transition-colors duration-300 text-xs md:text-sm"
+            >
+              <ArrowDownTrayIcon className="h-4 w-4" />
+              Download
+            </button>
+          </div>
         </div>
       )}
     </motion.div>
