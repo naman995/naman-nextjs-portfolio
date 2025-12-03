@@ -50,14 +50,37 @@ export const projectsData = [
   {
     id: 5,
     title: "3 Tier Architecture Application Deployment",
-    description: "End to End 3 tier architecture application deployment",
-    detailedDescription:
-      "A production-ready React application template with Firebase integration, featuring automated deployment pipelines, container orchestration, and infrastructure as code. This project showcases best practices in DevOps workflows including automated testing, continuous integration, and cloud-native deployment strategies.",
-    image: "/images/projects/5.png",
+    description:
+      "End-to-End Deployment of a Three-Tier Application on AWS EKS Cluster using GitOps",
+    detailedDescription: ` Project: End-to-End Deployment of a Three-Tier Application on AWS EKS Cluster using GitOps
+
+Objective: Led the deployment of a three-tier application on AWS EKS, utilizing GitOps with ArgoCD to automate and streamline the delivery process.
+
+Key Achievements:
+• Infrastructure Automation:
+  Reduced setup time by 30% using Terraform for AWS provisioning.
+
+• CI/CD Pipeline:
+  Achieved a 95% deployment success rate with zero downtime by implementing a Jenkins-driven CI/CD pipeline.
+
+• GitOps Integration:
+  Cut manual intervention by 80% through ArgoCD integration, ensuring seamless synchronization between GitHub and EKS.
+
+• Monitoring Setup:
+  Improved issue detection time by 40% with Prometheus and Grafana, enabling faster response to critical alerts.
+
+Impact: Delivered a 99.9% deployment success rate, improved scalability, and reduced manual efforts by 90%, significantly enhancing operational efficiency and system reliability.`,
+    image: "/project/5-1.png",
     tag: ["All", "Devops"],
     gitUrl: "/",
     previewUrl: "/",
-    videoUrl: "", // Add your video URL here
+    videoUrl: "/video/CICD project.mp4", // Add your video URL here
+    projectImages: [
+      "/project/5-1.png",
+      "/project/5-2.png",
+      "/project/5-3.png",
+      "/project/5-4.png",
+    ], // Add image URLs here, e.g., ["/images/projects/5-1.png", "/images/projects/5-2.png"]
   },
   // {
   //   id: 6,

@@ -6,11 +6,12 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 // Helper function to convert YouTube/Vimeo URLs to embed format
 const getEmbedUrl = (url) => {
   if (!url) return null;
-  
+
   // YouTube URL handling
   if (url.includes("youtube.com/watch")) {
     const videoId = url.split("v=")[1]?.split("&")[0];
@@ -23,7 +24,7 @@ const getEmbedUrl = (url) => {
   if (url.includes("youtube.com/embed")) {
     return url;
   }
-  
+
   // Vimeo URL handling
   if (url.includes("vimeo.com/")) {
     const videoId = url.split("vimeo.com/")[1]?.split("?")[0];
@@ -32,7 +33,7 @@ const getEmbedUrl = (url) => {
   if (url.includes("player.vimeo.com")) {
     return url;
   }
-  
+
   // Direct video file or other embed URLs
   return url;
 };
@@ -41,7 +42,7 @@ export default function ProjectDetailPage() {
   const params = useParams();
   const projectId = parseInt(params.id);
   const project = projectsData.find((p) => p.id === projectId);
-  
+
   const embedUrl = project?.videoUrl ? getEmbedUrl(project.videoUrl) : null;
 
   if (!project) {
@@ -94,7 +95,7 @@ export default function ProjectDetailPage() {
                 ></iframe>
               ) : project.videoUrl && project.videoUrl.endsWith?.(".mp4") ? (
                 <video
-                  src={project.videoUrl}
+                  src={encodeURI(project.videoUrl)}
                   controls
                   className="w-full h-full"
                 >
@@ -107,7 +108,8 @@ export default function ProjectDetailPage() {
                       Video coming soon
                     </p>
                     <p className="text-[#ADB7BE] text-sm">
-                      Add a video URL (YouTube, Vimeo, or direct video file) to the project data to display it here
+                      Add a video URL (YouTube, Vimeo, or direct video file) to
+                      the project data to display it here
                     </p>
                   </div>
                 </div>
@@ -123,12 +125,39 @@ export default function ProjectDetailPage() {
               Project Description
             </h2>
             <div className="prose prose-invert max-w-none">
-              <p className="text-[#ADB7BE] text-lg leading-relaxed">
+              <p className="text-[#ADB7BE] text-lg leading-relaxed whitespace-pre-wrap">
                 {project.detailedDescription || project.description}
               </p>
             </div>
           </div>
         </section>
+
+        {/* Project Images Section */}
+        {project.projectImages && project.projectImages.length > 0 && (
+          <section className="mb-12">
+            <div className="bg-[#181818] rounded-xl p-6 md:p-8">
+              <h2 className="text-3xl font-bold text-white mb-6">
+                Project Images
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {project.projectImages.map((imgUrl, index) => (
+                  <div
+                    key={index}
+                    className="relative w-full aspect-video rounded-lg overflow-hidden bg-[#252525] group cursor-pointer"
+                  >
+                    <Image
+                      src={imgUrl}
+                      alt={`${project.title} - Image ${index + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Project Details */}
         <section className="mb-12">
@@ -173,4 +202,3 @@ export default function ProjectDetailPage() {
     </main>
   );
 }
-
