@@ -82,18 +82,30 @@ Impact: Delivered a 99.9% deployment success rate, improved scalability, and red
       "/project/5-4.png",
     ], // Add image URLs here, e.g., ["/images/projects/5-1.png", "/images/projects/5-2.png"]
   },
-  // {
-  //   id: 6,
-  //   title: "Full-stack Roadmap",
-  //   description: "A comprehensive full-stack development roadmap project",
-  //   detailedDescription:
-  //     "This project provides a complete roadmap for full-stack development with DevOps integration. It includes infrastructure automation, containerization with Docker, Kubernetes orchestration, CI/CD pipelines, and monitoring solutions. The project demonstrates end-to-end DevOps practices from development to production deployment.",
-  //   image: "/images/projects/6.png",
-  //   tag: ["All", "Devops"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  //   videoUrl: "", // Add your video URL here
-  // },
+  {
+    id: 6,
+    title: "2 tier-python application",
+    description: "Containerization of a Two-Tier Application using Docker, Docker Compose, and Image Scanning with Docker Scout",
+    detailedDescription: `Upon completion of this project, learners can add the following description to their resumes:
+
+Objective: Containerized a two-tier application using Docker and managed deployment with Docker Compose.
+
+Key Achievements:
+
+• Created and managed Docker images, optimizing container performance.
+
+• Conducted vulnerability scanning with Docker Scout to enhance security.
+
+• Improved understanding of container networking and Docker security best practices.
+
+Impact: Streamlined application deployment, bolstered security, and deepened containerization expertise.`,
+    image: "/project/6-1.png",
+    tag: ["All", "Devops"],
+    gitUrl: "/",
+    previewUrl: "/",
+    videoUrl: "",
+    projectImages: ["/project/6-1.png"], // Add image URLs here, e.g., ["/images/projects/5-1.png", "/images/projects/5-2.png"]
+  },
 ];
 
 const ProjectsSection = () => {
