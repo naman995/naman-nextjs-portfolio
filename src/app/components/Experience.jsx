@@ -119,22 +119,24 @@ const ExperienceCard = ({ experience }) => {
         </div>
       )}
       {experience.experienceLetter && (
-        <div className="flex items-center gap-3 mt-3 pt-3 border-t border-[#333]">
-          <DocumentTextIcon className="h-5 w-5 text-gray-400" />
-          <span className="text-sm text-gray-400 flex-1">
-            Experience Letter
-          </span>
-          <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 mt-3 pt-3 border-t border-[#333]">
+          <div className="flex items-center gap-2">
+            <DocumentTextIcon className="h-5 w-5 text-gray-400" />
+            <span className="text-sm text-gray-400">
+              Experience Letter
+            </span>
+          </div>
+          <div className="flex gap-2 sm:ml-auto">
             <button
               onClick={handleView}
-              className="flex items-center gap-2 px-3 py-1.5 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors duration-300 text-xs md:text-sm"
+              className="flex items-center gap-2 px-3 py-1.5 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors duration-300 text-xs md:text-sm flex-1 sm:flex-none"
             >
               <EyeIcon className="h-4 w-4" />
               View
             </button>
             <button
               onClick={handleDownload}
-              className="flex items-center gap-2 px-3 py-1.5 bg-secondary-500 hover:bg-secondary-600 text-white rounded-lg transition-colors duration-300 text-xs md:text-sm"
+              className="flex items-center gap-2 px-3 py-1.5 bg-secondary-500 hover:bg-secondary-600 text-white rounded-lg transition-colors duration-300 text-xs md:text-sm flex-1 sm:flex-none"
             >
               <ArrowDownTrayIcon className="h-4 w-4" />
               Download
